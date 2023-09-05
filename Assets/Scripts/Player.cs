@@ -45,16 +45,15 @@ public class Player : MonoBehaviour {
         transform.position = position;
     }
 
+    /// <summary>
+    /// Aqui nós fazemos o personagem olhar para o cursor do mouse.
+    /// A fórmula será a seguinte: Novo_angulo_Y = Tan(distancia ou diferença entre mouse e personagem) * 180 / Num_Pi
+    /// </summary>
     private void Look() {
-        Vector3 position = camera.ScreenToWorldPoint(Input.mousePosition);
-
-        // Leva em conta a rotação da câmera
-        Vector3 direction = position - transform.position;
-        float angle = Mathf.Atan2(direction.z, direction.x);
-
-        Debug.Log(position);
-
-        transform.rotation = Quaternion.Euler(0f, angle, 0f);
+        Vector3 position = camera.WorldToScreenPoint(transform.position);
+        Vector3 difference = Input.mousePosition - position;
+        float angle = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, -angle, 0f);
     }
 
     private struct Constants {
