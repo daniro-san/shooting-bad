@@ -243,6 +243,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7977366211081823917, guid: c094c103416ea344e8f681f98fa8c2c0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1009239349}
+    - targetCorrespondingSourceObject: {fileID: 7977366211081823917, guid: c094c103416ea344e8f681f98fa8c2c0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1009239351}
+    - targetCorrespondingSourceObject: {fileID: 7977366211081823917, guid: c094c103416ea344e8f681f98fa8c2c0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1009239350}
   m_SourcePrefab: {fileID: 100100000, guid: c094c103416ea344e8f681f98fa8c2c0, type: 3}
 --- !u!1 &705507993
 GameObject:
@@ -553,6 +559,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c612c86c7f80d47aedbdf234c8d060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1009239350
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009239345}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1009239351
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009239345}
+  serializedVersion: 4
+  m_Mass: 70
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &6575910631014471835
 PrefabInstance:
   m_ObjectHideFlags: 0
