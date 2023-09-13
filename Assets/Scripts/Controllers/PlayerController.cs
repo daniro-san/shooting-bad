@@ -4,17 +4,19 @@ using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody), typeof(BoxCollider))]
-public class Player : MonoBehaviour {
+public class PlayerController : MonoBehaviour 
+{
+    private Camera camera = null;
+    private Rigidbody rigidbody = null;
 
-    private Camera camera;
-    private Rigidbody rigidbody;
-
-    void Start() {
+    void Start() 
+    {
         camera = Camera.main;
         rigidbody = GetComponent<Rigidbody>();
     }
 
-    void Update() {
+    void Update() 
+    {
         Move();
         Look();
     }
@@ -23,7 +25,8 @@ public class Player : MonoBehaviour {
     /// Aqui nós movemos o personagem em cada eixo.
     /// A fórmula será sempre: Vetor_velocidade = Vetor(Eixo X normalizado {-1, 1} por Input, 0, Eixo Y normalizado {-1, 1} por Input) * Velocidade_Media
     /// </summary>
-    private void Move() {
+    private void Move()
+    {
         Vector3 velocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * Constants.WALK_SPEED;
         rigidbody.velocity = velocity;
     }
