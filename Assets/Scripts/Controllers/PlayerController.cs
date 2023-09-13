@@ -6,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody), typeof(BoxCollider))]
 public class PlayerController : MonoBehaviour 
 {
+    public float walkSpeed = 5.0f;
+
     private Camera camera = null;
     private Rigidbody rigidbody = null;
 
@@ -22,19 +24,19 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Aqui nÛs movemos o personagem em cada eixo.
-    /// A fÛrmula ser· sempre: Vetor_velocidade = Vetor(Eixo X normalizado {-1, 1} por Input, 0, Eixo Y normalizado {-1, 1} por Input) * Velocidade_Media
+    /// Aqui n√≥s movemos o personagem em cada eixo.
+    /// A f√≥rmula ser√° sempre: Vetor_velocidade = Vetor(Eixo X normalizado {-1, 1} por Input, 0, Eixo Y normalizado {-1, 1} por Input) * Velocidade_Media
     /// </summary>
     private void Move()
     {
-        Vector3 velocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * Constants.WALK_SPEED;
+        Vector3 velocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * walkSpeed;
         rigidbody.velocity = velocity;
     }
 
     /// <summary>
-    /// Aqui nÛs fazemos o personagem olhar para o cursor do mouse.
-    /// A fÛrmula ser· a seguinte: Novo_angulo_Y = ArcTan(distancia ou diferenÁa entre mouse e personagem) * 180 / Num_Pi
-    /// Lembrando que o resultado da funÁ„o Arco-Tangente sempre ser· em radianos, logo È por isso que precisamos da convers„o para graus...
+    /// Aqui n√≥s fazemos o personagem olhar para o cursor do mouse.
+    /// A f√≥rmula ser√° a seguinte: Novo_angulo_Y = ArcTan(distancia ou diferen√ßa entre mouse e personagem) * 180 / Num_Pi
+    /// Lembrando que o resultado da fun√ß√£o Arco-Tangente sempre ser√° em radianos, logo √© por isso que precisamos da convers√£o para graus...
     /// </summary>
     private void Look() 
     {

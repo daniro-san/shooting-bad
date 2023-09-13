@@ -4,5 +4,5 @@ using UnityEngine;
 
 public struct Constants
 {
-    public static float WALK_SPEED = 5.0f;
+    // Adicione as constantes aqui... Só deixei criado de template...
 }
