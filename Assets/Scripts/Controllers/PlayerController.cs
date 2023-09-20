@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody), typeof(BoxCollider))]
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour 
 {
     public float walkSpeed = 5.0f;
 
     private Camera camera = null;
     private Rigidbody rigidbody = null;
+    private Animator animator;
+    private AnimationDirectorController animationDirector;
 
     void Start() 
     {
         camera = Camera.main;
         rigidbody = GetComponent<Rigidbody>();
+        animationDirector = GetComponent<AnimationDirectorController>();
+        animator = GetComponent<Animator>();
     }
 
     void Update() 
@@ -30,6 +34,9 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         Vector3 velocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * walkSpeed;
+
+        animationDirector.Moving(animator, velocity.sqrMagnitude);
+
         rigidbody.velocity = velocity;
     }
 
