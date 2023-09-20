@@ -62,12 +62,12 @@ public class PlayerController : MonoBehaviour
         float playerDistanceOffset = Vector3.Distance(transform.position, playerInitialPosition);
 
         // Checando limiar de distância do jogador... Se for maior, nós movemos a câmera.
-        if (!isCameraMoving && playerDistanceOffset > cameraThreshold) 
+        if (!isCameraMoving && playerDistanceOffset >= cameraThreshold) 
         {
             cameraInitialPosition = camera.transform.position;
             isCameraMoving = true;
         } 
-        else 
+        else if (isCameraMoving)
         {
             // Aplicando a fórmula de movimento
             Vector3 originalVector = new Vector3(
